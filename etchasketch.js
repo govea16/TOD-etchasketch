@@ -34,7 +34,15 @@ function gridCreate (gridSize) {
         for (let j = 1; j <= gridSize; j++) {
             const gameSquare = document.createElement('div')
             gameSquare.addEventListener('mouseenter', () => {
-                gameSquare.style.backgroundColor = 'black';
+                function getRandomColor() {
+                    var letters = '0123456789ABCDEF';
+                    var color = '#';
+                    for (var i = 0; i < 6; i++) {
+                      color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                  }
+                gameSquare.style.backgroundColor = `${getRandomColor()}`;
             });
             gameSquare.style.width = `${800/gridSize}px`;
             gameSquare.style.border = '.5px solid #000000';
